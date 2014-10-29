@@ -21,10 +21,7 @@ $(document).ready(function() {
     
     $('.btn-go').on('click', function(){
 		mySound.play();
-		$('.start-screen').addClass( "enter-soundscape" );
-		
-		$('.soundscape').css('opacity', 1);
-		$('.titlecard').css('opacity', 0);
+		$('body').addClass( "enter-soundscape" );
 		
 	});
     
