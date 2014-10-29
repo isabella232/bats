@@ -1,58 +1,144 @@
 {% extends '_base.html' %}
 
 {% block header_content %}
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>{{ COPY.content.project_name|smarty }}</h1>
-                <h2>{{ COPY.content.lorem_ipsum|smarty }}</h2>
-            </div>
-        </div>
-    </div>
-</header>
+
 {% endblock %}
 
 
 {% block content %}
-<h1>{{ COPY.content.project_name }}</h1>
 
-<div id="story-meta">
-    <p class="byline">by <span>{{ COPY.content.byline }}</span></p>
-    <p class="dateblock">
-        <span class="date">{{ COPY.content.pubdate }}</span>
-        <span class="time"> {{ COPY.content.pubtime }}</span>
-    </p>
+
+
+<div class="start-screen">
+
+    <div class="full-block introduction">
+        <div class="full-block-cell">
+            <div class="full-block-content">
+                <h1>A New Home For Bats</h1>
+                <p>Listen to the rasping trills and beating wings of bats as they take flight in an unusual subterranean hibernaculum, an abandoned copper mine in Michigan’s Upper Peninsula. To fully experience the sounds in this experience, <b>please put on your headphones</b> <i class="fa fa-headphones"></i>.</p>
+                
+                <button class="btn-go">Go</button>
+                
+                
+        
+            </div>
+        </div>
+        
+    </div><!-- titlecard -->
+
+    
 </div>
 
-<a class="comment-button comment-button-bubble comment-drawer-toggle" href="javascript:">
-    <span class="comment-count"></span>
-</a>
+<div class="soundscape">
 
-<a class="comment-button comment-button-article comment-drawer-toggle" data-toggle="modal" data-backdrop="static" data-target="#share-modal">
-    <span class="comment-count"></span>
-    <span class="comment-label">Share / Discuss</span>
-</a>
+    <div class="full-block titlecard">
+        <div class="full-block-cell">
+            <div class="full-block-content">
+            
+            <!--
+                <h1>A NEW HOME FOR BATS</h1>
+                <p>Listen to the rasping trills and beating wings of bats as they take flight in an unusual subterranean hibernaculum, an abandoned copper mine in Michigan’s Upper Peninsula.</p>
+                
+                -->
+        
+            </div>
+        </div>
+        
+    </div><!-- titlecard -->
+    
+    <div id="video-bg">
 
-<h2>Example COPY list</h2>
-<dl>
-    {% for row in COPY.example_list %}
-    <dt>{{ row.term }}</dt><dd>{{ row.definition }}</dd>
-    {% endfor %}
-</dl>
+      <video id="bg-vid" autoplay loop>
+        <source type="video/mp4" src="assets/cave.mp4">
+        <!--<source type="video/webm" src="assets/cave.webm">-->
+      </video>
+    
+    </div>
+    
+    <div class="primary-nav" data-toggle="modal" data-target="#site-index"><i class="fa fa-bars"></i></div>
+    <div class="audio-controls">
+        <i class="fa fa-volume-up"></i>
+        <i class="fa fa-volume-off"></i>
+    </div>
+    
+    <!--
+    <div class="direction-nav">
+        <div class="north"><i class="fa fa-chevron-up"></i></div>
+        <div class="east"><i class="fa fa-chevron-right"></i></div>
+        <div class="south"><i class="fa fa-chevron-down"></i></div>
+        <div class="west">
+                <i class="fa fa-chevron-left"></i>
+            
+        </div>
+    </div>
+    -->
+    
+    <div class="annotation" data-toggle="modal" data-target="#annotation-modal">
+        <p>
+            Dzanga-Sangha Special Reserve 3&deg;6'N 16&deg;20'E
+            <b>more info <i class="fa fa-question-circle"></i></b>
+        </p>
+    </div>
+</div><!--/soundscape-->
 
-<h2>JST example</h2>
-<p id="template-example"></p>
+
+
+
+
+
+
+
+
+<!-- annotation modal -->
+<div class="modal fade" data-backdrop="static" id="annotation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4>Dzanga-Sangha Special Reserve</h4>
+        
+        <span class="close-modal" data-dismiss="modal"><i class="fa fa-times"></i></span>
+      </div>
+      <div class="modal-body">
+        <p><b>why this recording matters</b></p>
+        <p>lorem ipsum dolar</p>
+        <p><b>hear the stories of this soundscape</b></p>
+        <p>Recording 3</p>
+        <p>Recording 4</p>
+        <p>Recording 5</p>
+        <p>etc...</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- site index modal -->
+<div class="modal fade" data-backdrop="static" id="site-index" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4>Radio Expeditions</h4>
+        
+        <span class="close-modal" data-dismiss="modal"><i class="fa fa-times"></i></span>
+      </div>
+      <div class="modal-body">
+        <p>Recording 1</p>
+        <p>Recording 2</p>
+        <p>Recording 3</p>
+        <p>Recording 4</p>
+        <p>Recording 5</p>
+        <p>etc...</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
 
 
 {% block wide_content %}
-<div class="row">
-    <div class="col-md-12">
-        <h2>{{ COPY.content.footer_title }}</h2>
-        <p>{{ COPY.content.lorem_ipsum }}</p>
-    </div>
-</div>
 {% endblock %}
 
-{% include '_share_modal.html' %}
