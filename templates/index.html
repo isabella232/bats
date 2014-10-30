@@ -20,7 +20,7 @@
                 
                 <button class="btn-go">Listen</button>
                 
-                <p class="binaural-note">To hear the recording in binaural(3D) sound, <b>put on your headphones.</b> <i class="fa fa-headphones"></i></p>
+                <p class="binaural-note">To hear the recording in binaural(3D) sound, <b>put on your headphones <i class="fa fa-headphones"></i></b> </p>
         
             </div>
         </div>
@@ -44,6 +44,7 @@
 
       <video id="bg-vid" autoplay loop poster="poster.jpg">
         <source type="video/mp4" src="assets/cave-water.mp4">
+        <source type="video/webm" src="assets/cave-water.webm">
       </video>
     
     </div>
@@ -59,23 +60,42 @@
     
     <div class="annotation" data-toggle="modal" data-target="#annotation-modal">
         <p>
-            <b>Learn more about this recording <i class="fa fa-question-circle"></i></b>
+            <b>Learn more about this recording and share it <i class="fa fa-question-circle"></i></b>
         </p>
     </div>
 </div><!--/soundscape-->
 
-<!-- annotation modal -->
+<!-- annotation modal fade-->
 <div class="modal fade" data-backdrop="static" id="annotation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         
-        <h4>A New Home for bats</h4>
+        <h4>A New Home for Bats</h4>
         
         <span class="close-modal" data-dismiss="modal"><i class="fa fa-times"></i></span>
       </div>
       <div class="modal-body">
         {{ COPY.content.bat_story }}
+        
+        <div class="share-list">
+        <h3>Share</h3>
+
+        <ul>
+        <li><a href="http://twitter.com/share?text={{ COPY.share.twitter_text|urlencode }}&amp;url={{ COPY.share.share_url|urlencode }}" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'tweet', 'share']);"><i class="fa fa-twitter share-icon"></i> Twitter</a></li>
+        <li><a href="https://www.facebook.com/dialog/feed?app_id={{ COPY.share.facebook_app_id }}&amp;link={{ COPY.share.share_url|urlencode }}&amp;name={{ COPY.share.facebook_title|urlencode }}&amp;picture={{ COPY.share.facebook_image_url|urlencode }}&amp;redirect_uri={{ SHARE_URL|urlencode }}" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'facebook', 'share']);"><i class="fa fa-facebook share-icon"></i> Facebook</a></li>
+        <li><a href="mailto:?body={{ COPY.share.email_body|safe }}&subject={{ COPY.share.email_subject }}" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'email', 'share']);"><i class="fa fa-envelope share-icon"></i> Email</a></li>
+        </ul>
+        </div><!--/share-list-->
+
+
+        <h5>Project Credits</h5>
+        <ul>
+        <li>Audio by Bill McQuay/Cornell Lab of Ornithology</li>
+        <li>Reporting by Chris Joyce</li>
+        <li>Designed/Produced by Wes Lindamood</li>
+        <li>Background image via iStockphoto</li>
+        </ul>
       </div>
       </div>
     </div>
