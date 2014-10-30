@@ -1,26 +1,23 @@
 $(document).ready(function() {
 
     $('body').css('opacity', 1);
-    //
-    
 
-    var mySound = new buzz.sound("http://stage-apps.npr.org/bats/assets/bats-soundscape.mp3", {
-    preload: true,
-    autoplay: false,
-    loop: true
+    //audio
+	$('#moodmusic').mediaelementplayer({
+        features: ['playpause'],
+        // width of audio player
+        audioWidth: 30,
+        // height of audio player
+        audioHeight: 30,
+        enableKeyboard: false,
+        loop: true,      
     });
-    
-
-
-	$('.audio-controls').on('click', function(){
-		mySound.togglePlay();
-		$(this).toggleClass( "audio-paused" );
-	});
 
     //start screen
+    var audiolab = $("#moodmusic")[0];
     
     $('.btn-go').on('click', function(){
-		mySound.play();
+		audiolab.play();
 		$('body').addClass( "enter-soundscape" );
 		
 	});
